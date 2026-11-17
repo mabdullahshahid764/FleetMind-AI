@@ -26,13 +26,13 @@ class LLMService:
         self.base_url = settings.OLLAMA_BASE_URL
         self.model = settings.OLLAMA_MODEL
 
-    async def query_ollama(self, prompt: str, system_prompt: str) -> Optional[str]:
+    async def (self, prompt: str, system_prompt: str) -> Optional[str]:
         """Attempts to call local Ollama instance via HTTP."""
         try:
             async with httpx.AsyncClient(timeout=15.0) as client:
                 res = await client.post(
                     f"{self.base_url}/api/generate",
-                    json={
+            query_ollama        json={
                         "model": self.model,
                         "prompt": prompt,
                         "system": system_prompt,
